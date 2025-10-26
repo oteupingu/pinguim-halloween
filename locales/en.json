@@ -1,0 +1,47 @@
+{
+    "title": "🎃 Halloween",
+    "notify_wait": "You must wait %ss before knocking again!",
+    "notify_blips": "Haunted houses will appear on the map for 1 minute!",
+    "door_knock": "Knocking on the door...",
+    "npc_label": "Mysterious Resident",
+    "explosionmortal": "💥 Deadly prank!",
+    "revive": "You revived! 👻",
+    "drunkz": "Are you dizzy!",
+    "rat": "You turned into a rat! 🐀",
+    "normalz": "You're back to normal!",
+    "notify_candy": "You received %sx %s! 🍬",
+    "npc_names": [
+        "Mr. Pumpkin",
+        "Ghostly Joe",
+        "Witch of the Hill",
+        "Friendly Phantom",
+        "Old Owl",
+        "Lord of Darkness",
+        "Skeleton Kid",
+        "Graveyard Zach",
+        "Count Spooky",
+        "Vampire Vicky"
+    ],
+    "dialogues": [
+        "Hello there, how can I help?",
+        "Boo! Haha, did I scare you?",
+        "Another one asking for candy... here you go!",
+        "Be careful what you wish for tonight...",
+        "Hello, sir/madam!",
+        "Halloween night has arrived, do you want some candy?",
+        "Feel the chill in the air? It's the ghosts passing by...",
+        "Candy? Tricks? Or both?",
+        "I hope you have the courage for what's coming next...",
+        "Ah, Halloween… I love handing out candy!",
+        "Enter if you dare, but beware of the shadows...",
+        "The dead are lurking, but I have candy!",
+        "Lightning and thunder, who's knocking on my door?",
+        "Smiles or scares? The choice is yours!",
+        "Don't be afraid… I just want to give you candy… or maybe not!"
+    ],
+    "options": {
+        "trickortreat": "Trick or Treat?",
+        "nothing": "I don’t need anything"
+    },
+    "house_name": "Haunted House"
+}

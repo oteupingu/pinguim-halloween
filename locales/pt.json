@@ -1,0 +1,47 @@
+{
+    "title": "🎃 Halloween",
+    "notify_wait": "Tens de esperar %ss antes de bater novamente!",
+    "notify_blips": "Os blips irão aparecer no mapa durante 1 minuto!",
+    "door_knock": "A bater à porta...",
+    "npc_label": "Morador Misterioso",
+    "explosionmortal": "💥 Travessura mortal!",
+    "revive": "Você reviveu! 👻",
+    "drunkz": "Você está tonto!",
+    "rat": "Você virou um rato! 🐀",
+    "normalz": "Você voltou ao normal!",
+    "notify_candy": "Recebeste %sx %s! 🍬",
+    "npc_names": [
+        "Dona Morte",
+        "Sr. Joaquim",
+        "Mister Pumpkin",
+        "A Bruxa da Colina",
+        "Fantasma Gentil",
+        "Velha Coruja",
+        "Senhor das Trevas",
+        "Menino Esqueleto",
+        "Zé do Caixão",
+        "Vampira Alegre"
+    ],
+    "dialogues": [
+        "Olá, em que posso ajudar?",
+        "Buu! Ahah, assustei-te?",
+        "Ah, mais um a pedir doces ou travessuras!",
+        "Cuidado com o que desejas neste dia...",
+        "Olá senhor(a)!",
+        "A noite das bruxas chegou, queres doces?",
+        "Sentes o frio no ar? São os fantasmas a passar...",
+        "Doces? Travessuras? Ou ambos?",
+        "Espero que tenhas coragem para o que vem a seguir...",
+        "Ah, o Halloween… adoro distribuir doces!",
+        "Entre se tiver coragem, mas cuidado com as sombras...",
+        "Os mortos estão à espreita, mas tenho doces!",
+        "Raios e trovões, quem bate à minha porta?",
+        "Sorrisos ou sustos? A escolha é tua!",
+        "Não temas… só quero dar-te doces… ou não!"
+    ],
+    "options": {
+        "trickortreat": "Doces ou Travessuras?",
+        "nothing": "Não preciso de nada"
+    },
+    "house_name": "Casa Assombrada"
+}
