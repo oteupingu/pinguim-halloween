@@ -4,13 +4,13 @@ Config = {}
 Config.Locale = "en"
 
 -- ⚙️ Inventory to use: "ox(ox_inventory)", "qb(qb_inventory)"
-Config.InventorySystem = "ox"
+Config.InventorySystem = "ox" -- PLEASE DO NOT TOUCH HERE!
 
 -- 💃 Reloadskin command: "reloadskin", "refreshskin", etc
 Config.Reloadskin = "reloadskin"
 
 -- 🎁 Reward Chance (0.0 to 1.0)
-Config.RewardChance = 0.5
+Config.RewardChance = 0.6
 
 -- ⏰ Cooldown between houses (in seconds)
 Config.Cooldown = 60
@@ -36,9 +36,21 @@ Config.Houses = {
 
 -- 🍬 Sweet Rewards
 Config.CandyItems = {
-    { item = 'chocolate', label = 'Chocolate', amount = 2 },
-    { item = 'candy_corn', label = 'Sweet Corn', amount = 3 },
-    { item = 'gummy', label = 'Gummy', amount = 2 },
-    { item = 'lollipop', label = 'Lollipop', amount = 1 },
-    { item = 'money', label = 'Money', amount = 50 }
+    'halloween-candycorn',
+    'halloween-chocolateskull',
+    'halloween-ghostmarshmallow',
+    'halloween-caramelapple',
+    'halloween-licorice',
+    'halloween-eyeballcandy',
+    'halloween-witchsbrew',
+    'halloween-caramelpopcorn',
+    'halloween-pumpkinlollipop',
+    'halloween-sugarspider',
+    'halloween-sweetfangs',
+    'halloween-vampireblood',
+    'halloween-ghostlygummies'
 }
+
+-- 💰 Money (range)
+Config.MoneyReward = { min = 50, max = 150 }
+
