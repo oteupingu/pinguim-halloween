@@ -1,5 +1,5 @@
 # Pinguim Halloween Event 🎃
-Festive FiveM Trick-or-Treat script for QBCore & Qbox with NPC interactions and rewards
+Festive FiveM Trick-or-Treat script for QBCore & Qbox with NPC interactions and rewards.
 
 # Preview
 <img width="1355" height="940" alt="image" src="https://github.com/user-attachments/assets/b424c986-5b1b-4f7b-80bc-3f56bb51120b" />
