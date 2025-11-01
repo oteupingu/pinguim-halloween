@@ -67,26 +67,37 @@ end
 ---------------------------------------------------------------------
 -- 🔹 Travessura ou Recompensa
 ---------------------------------------------------------------------
--- Guarda a última travessura para evitar repetição
-local lastTrickType = nil
-
 local function ApplyTrickOrReward()
-    local ped = PlayerPedId()
-    
-    -- Chance de ganhar recompensa ou sofrer travessura
     local chance = math.random()
-    
+    local ped = PlayerPedId()
+
     if chance < Config.RewardChance then
-        -- 🍬 Recompensa
-        TriggerServerEvent('pinguim_halloween:server:GiveReward', 'candy')
+    -- 🍬 Recompensa
+    if currentDialoguePed and DoesEntityExist(currentDialoguePed) then
+        local animDict = "mp_common"
+        RequestAnimDict(animDict)
+        while not HasAnimDictLoaded(animDict) do Wait(5) end
+
+        local propModel = `prop_candy_pqs`
+        RequestModel(propModel)
+        while not HasModelLoaded(propModel) do Wait(5) end
+        local prop = CreateObject(propModel, 0, 0, 0, true, true, true)
+        AttachEntityToEntity(prop, currentDialoguePed, GetPedBoneIndex(currentDialoguePed, 60309),
+            0.1, 0.0, 0.0, 90.0, 0.0, 0.0, true, true, false, true, 1, true)
+
+        TaskPlayAnim(currentDialoguePed, animDict, "givetake1_a", 8.0, -8.0, 2000, 49, 0, false, false, false)
+        Wait(1500)
+        DeleteObject(prop)
+        ClearPedTasks(currentDialoguePed)
+        SetModelAsNoLongerNeeded(propModel)
+    end
+
+    -- ✉️ Envia pedido para o servidor (será ele que dá o item e notifica)
+    TriggerServerEvent('pinguim_halloween:server:GiveReward', 'candy')
+
     else
-        -- 👻 Travessura aleatória (não repete consecutivamente)
+        -- 👻 Travessura!
         local trickType = math.random(1, 3)
-        while trickType == lastTrickType do
-            trickType = math.random(1, 3)
-        end
-        lastTrickType = trickType
-        print("[Halloween] Travessura tipo: " .. trickType) -- debug
 
         if trickType == 1 then
             -- 💫 Efeito bêbado
@@ -100,7 +111,8 @@ local function ApplyTrickOrReward()
             StopGameplayCamShaking(true)
             lib.notify({ title = Lang.title, description = Lang.drunkz, type = "inform" })
 
-        elseif trickType == 2 then
+    elseif trickType == 2 then
+
             -- 🐀 Transformar em rato
             local ratModel = `a_c_rat`
             local playerskin = Config.Reloadskin
@@ -118,21 +130,22 @@ local function ApplyTrickOrReward()
             ExecuteCommand(playerskin)
             lib.notify({ title = Lang.title, description = Lang.normalz, type = "inform" })
 
-        elseif trickType == 3 then
+    elseif trickType == 3 then
             -- 💥 Explosão fake
             local coords = GetEntityCoords(ped)
-            local playerId = PlayerId()
-            local playerz = GetPlayerServerId(playerId)
+            local playerId = PlayerId() -- pega o ID local do jogador
+            local playerz = GetPlayerServerId(playerId) -- converte para o ID do servidor
             AddExplosion(coords.x, coords.y, coords.z, 2, 1.0, true, false, 1.0)
             lib.notify({ title = Lang.title, description = Lang.explosionmortal, type = "error" })
 
             Wait(10000)
+            
             ExecuteCommand("revive " .. playerz)
+             
             lib.notify({ title = Lang.title, description = Lang.revive, type = "success" })
         end
     end
 end
-
 
 ---------------------------------------------------------------------
 -- 🔹 Inicia diálogo com NPC (fecha sempre ao clicar)
@@ -241,7 +254,7 @@ CreateThread(function()
             rotation = house.heading or 0.0,
             options = {
                 {
-                    name = ('halloween_house_%d'):format(i),
+                    name = ('halloween-house_%d'):format(i),
                     icon = 'fa-solid fa-door-open',
                     label = Lang.options.trickortreat,
                     onSelect = function(data)
